@@ -48,6 +48,56 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getLogin()
+    {
+        return view('login', array("page_title" => "Login"));    
+    }
+    
+    public function postLogin(Request $request)
+    {
+        $data = array(
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+            );
+        
+        if (Auth::attempt($data))
+        {
+            return redirect('/');
+        }
+        else
+        {
+            return redirect('/auth/login');
+        }
+    }
+    
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+    
+    public function getRegister()
+    {
+        return view('register', array('page_title' => 'Sign Up'));
+    }
+    
+    public function postRegister(Request $request)
+    {
+        $data = $request->all();
+           
+        $validator = $this->validator($data);
+        
+        if ($validator->fails())
+        {
+            return redirect('auth/register');
+        }
+        else
+        {
+            $user = $this->create($data);
+            return redirect('/');
+        }
+    }
+    
     /**
      * Create a new user instance after a valid registration.
      *

@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 
+    ['as' => 'home',
+    'middleware' => 'role:admin',
+    'uses' => 'PageController@index']);
