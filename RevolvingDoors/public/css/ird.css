@@ -1,0 +1,93 @@
+/* IRD Style */
+
+.top {
+margin-top: 30px;
+
+}
+
+body { 
+    background-color: #052b4f;
+}
+
+.white {
+    background-color: white;
+}
+
+
+/* Home Page Sty;e */
+
+.highlight {
+    background-color: #666666;
+    color:white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
+.jumbo1 {
+    position: relative;
+    background: #000 url("../assets/images/header.jpg") center center;
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.fontwhite {
+    color:white;
+}
+
+.slogan {
+    color: white;
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hometriad {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+
+/* Footer Style */
+.foot {
+    background: black;
+    color:gray;
+    padding-bottom: 20px;
+    padding-top: 15px; 
+    height: 100px;
+}
+.log-in-button {
+    padding-right: 30px; 
+    padding-left: 30px;
+}
+.foot, .push {
+    height: 100px; /* .push must be the same height as .foot */
+}
+
+
+/*log in page */
+.loginform {
+    margin-top: 50x;
+}
+
+.login-container{
+    padding-bottom: 30px;
+    padding-top: 60px;
+    
+}
+
+
