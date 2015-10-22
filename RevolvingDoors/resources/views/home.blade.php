@@ -1,49 +1,21 @@
 @extends('template.master')
 @section('content')
-
-<div class="row">
-	@include('template.sidebar')
-		
-	@if (! Auth::check() )
-		@include('template.jumbotron', array(
-				'other_classes' => 'col-sm-8 col-sm-offset-2 front-jumbotron',
-				'title' => 'Lorem Ipsum Dolor', 
-				'message' => 'Register now!',
-				'button' => 'auth/register',
-				'button_message' => 'Sign Up')
-				)
-	@endif
-			
-			<div class="col-md-12 text-center">
-				<h2> That's what you can do </h2>
-			</div>
-			<br>
-			<div class="row row-centered">
-				@for ($i = 0; $i <3; $i++)
-				<div class="col-xs-4 col-md-2 col-centered">
-					<div class="thumbnail front-thumbnail">
-					<img src="{{ URL::to('/images/placeholder.jpg')}}" alt="..." class="img-circle">
-					<div class="caption">
-						<h3>Suspendisse Posuere</h3>
-						<p>Suspendisse posuere metus diam</p>
-					</div>
-					</div>
+<div class="row" style="margin-top : 120px;">
+	<div class="col-sm-12">
+		<div class="panel panel-defaut">
+			<div class="panel-body">
+				<div class="page-header">
+					<h1> This is the home page </h1>
+					@if (Auth::check())
+						<h2> You are logged in </h2>
+						<img src="{{ URL::to('images/cat.png')}}" class="thumbnail" style="width : 150px;"/>
+					@else
+						<h2> You are not logged in </h2>
+						<img src="{{ URL::to('images/darth_stw.jpg')}}" class="thumbnail" style="width : 150px;"/>
+					@endif
 				</div>
-				@endfor
 			</div>
-	
-			<div class="col-md-12 text-center parallax">
-				
-			</div>
-			<div class="col-md-12 text-center">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-			</div>
-	</div>		
+		</div>
+	</div>
 </div>
 @endsection

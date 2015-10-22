@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -50,7 +52,7 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-        return view('login', array("page_title" => "Login"));    
+        return view('auth/login', array("page_title" => "Login"));    
     }
     
     public function postLogin(Request $request)
