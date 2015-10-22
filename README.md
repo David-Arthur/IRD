@@ -35,3 +35,18 @@ public function showPage()
 }
 ...
 ```
+
+## Checking User Status
+
+- If you happen to need to check whether a user is logged in or not you can do use this:
+```
+if (Auth::check())
+{
+	//user is logged in, show content
+}
+else
+{
+	//user is not logged in, show login page
+}
+```
+- Do not forget to include `use Auth` in at the top of your file
