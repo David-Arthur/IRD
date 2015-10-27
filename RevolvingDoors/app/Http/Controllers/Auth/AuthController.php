@@ -80,7 +80,7 @@ class AuthController extends Controller
     
     public function getRegister()
     {
-        return view('register', array('page_title' => 'Sign Up'));
+        return view('auth/register', array('page_title' => 'Sign Up'));
     }
     
     public function postRegister(Request $request)
@@ -108,6 +108,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        if ($data['architect']){
+            // Assign the role
+        }
+        else{
+            // Assign the role
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

@@ -3,13 +3,12 @@
 
     <div class="jumbotron jumbo1">
     <div class="container text-center top">
-        <img src="assets/images/logo_color_300.png">
-        
+        <img src="assets/images/logo_color_300.png"> 
     </div>
 </div>  
      
 <div class="container white ">  
-<div class="col-xs-12 text-center"><h2>Log-In to International Revolving Doors</h2></div>
+    <div class="col-xs-12 text-center"><h2>Log-In to International Revolving Doors</h2></div>
 
     <div class="col-xs-4 col-xs-offset-4 text-center login-container">
         <form class="form-horizontal loginform" method="post" action="{{ URL::to('/auth/login') }}">
@@ -33,7 +32,7 @@
                 </div>
             </div>    
         </form>
-        <h4>Don't have a  username? <a href="registration.html">Register Here</a></h4>    
+        <h4>Don't have a  username? <a href="{{ URL::to('auth/register') }}">Register Here</a></h4>    
 
     </div>
     <div class="push white col-xs-12"></div>
