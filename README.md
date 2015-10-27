@@ -33,7 +33,7 @@ PS C:/ > create database revolving_doors
 
  - Go back to you `.env` file and change the database line to 
 ```
-DB_DATABASE=homestead
+DB_DATABASE=revolving_doors
 ```
 
  - Change the username and password line to reflect what you used in the first steps.
@@ -47,7 +47,8 @@ DB_DATABASE=homestead
  ```
  PS C:\xampp\htdocs\RevolvingDoors\RevolvingDoors > php artisan migrate
  ``` 
-
+3. Creating An Encryption Key
+ - You may be experiencing 
 ## Views
 
 - Every view should extend the master template using the following line of code : 
