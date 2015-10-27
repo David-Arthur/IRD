@@ -48,7 +48,11 @@ DB_DATABASE=revolving_doors
  PS C:\xampp\htdocs\RevolvingDoors\RevolvingDoors > php artisan migrate
  ``` 
 3. Creating An Encryption Key
- - You may be experiencing 
+ - You may be experiencing problems some problems yo see the website, something related to encryption or keys. Just go to your project folder in the terminal and do :
+ ```
+ PS C:\xampp\htdocs\RevolvingDoors\RevolvingDoors > php artisan key:generate
+ ```
+ 
 ## Views
 
 - Every view should extend the master template using the following line of code : 
