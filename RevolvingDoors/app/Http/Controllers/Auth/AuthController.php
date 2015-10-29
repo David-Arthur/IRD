@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -48,6 +50,56 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getLogin()
+    {
+        return view('auth/login', array("page_title" => "Login"));    
+    }
+    
+    public function postLogin(Request $request)
+    {
+        $data = array(
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+            );
+        
+        if (Auth::attempt($data))
+        {
+            return redirect('/');
+        }
+        else
+        {
+            return redirect('/auth/login');
+        }
+    }
+    
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+    
+    public function getRegister()
+    {
+        return view('auth/register', array('page_title' => 'Sign Up'));
+    }
+    
+    public function postRegister(Request $request)
+    {
+        $data = $request->all();
+           
+        $validator = $this->validator($data);
+        
+        if ($validator->fails())
+        {
+            return redirect('auth/register');
+        }
+        else
+        {
+            $user = $this->create($data);
+            return redirect('/');
+        }
+    }
+    
     /**
      * Create a new user instance after a valid registration.
      *
@@ -56,6 +108,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        if ($data['architect']){
+            // Assign the role
+        }
+        else{
+            // Assign the role
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

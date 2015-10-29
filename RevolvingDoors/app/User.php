@@ -14,11 +14,11 @@ use Bican\Roles\Traits\HasRoleAndPermission;
 use Bican\Roles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
 
 class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
+                                    /*AuthorizableContract,*/
                                     CanResetPasswordContract, HasRoleAndPermissionContract
 
 {
-    use Authenticatable, Authorizable, CanResetPassword, HasRoleAndPermission;
+    use Authenticatable, /*Authorizable,*/ CanResetPassword, HasRoleAndPermission;
 
     /**
      * The database table used by the model.
