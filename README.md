@@ -4,6 +4,11 @@ Click [here](https://laracasts.com/series/laravel-5-fundamentals/episodes/1) for
 
 © University of Southern Indiana - 2015
 
+## This to fix
+
+- When you create a user, it should automatically login
+
+
 ## How to get the project to run on your PC/Mac
 
 - Make sure you have a database installed and running (if you're using MAMPP/XAMPP/WAMPP it should be installed)

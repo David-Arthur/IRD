@@ -119,7 +119,7 @@ class AuthController extends Controller
     {
         $role;
         
-        if (!isset($data['architect']))
+        if (isset($data['architect']))
         {
             $role = Role::where('slug', 'architect')->first();
         }
