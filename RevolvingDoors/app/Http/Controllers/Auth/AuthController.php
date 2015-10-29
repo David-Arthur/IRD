@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Bican\Roles\Models\Role;
+
 class AuthController extends Controller
 {
     /*
@@ -80,7 +82,7 @@ class AuthController extends Controller
     
     public function getRegister()
     {
-        return view('register', array('page_title' => 'Sign Up'));
+        return view('auth/register', array('page_title' => 'Sign Up'));
     }
     
     public function postRegister(Request $request)
@@ -108,10 +110,25 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $role;
+        
+        if (!isset($data['architect']))
+        {
+            $role = Role::where('slug', $data['buyers'])->first();
+        }
+        else
+        {
+            $role = Role::where('slug', $data['architect'])->first();    
+        }
+        
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]); 
+        
+        $user->attachRole($role);
+        
+        return $user;
     }
 }

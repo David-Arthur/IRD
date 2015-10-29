@@ -1,17 +1,16 @@
 @extends('template.master')
 @section('content')
 <!-- resources/views/auth/register.blade.php -->
+    <div class="jumbotron jumbo1">
+    <div class="container text-center top">
+        <img src="assets/images/logo_color_300.png">
+    </div>
+</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 login-image col-md-offset-2">
-            <div class="content text-center">
-                <h2> Sign up and get all the befenits of... </h2>
-            </div>
-        </div>
+<div class="container white">
+    <div class="col-xs-12 text-center"><h2>Sign up and get all the befenits of...</h2></div>
 
-    <form method="POST" action="{{ URL::to('/auth/register') }}"
-    class="col-md-3 col-md-offset-1 form-horizontal">
+    <form method="POST" action="{{ URL::to('/auth/register') }}" class="col-md-3 col-md-offset-1 form-horizontal">
         {!! csrf_field() !!}
     
         <div class="form-group">
@@ -42,6 +41,10 @@
             <input type="password" name="password_confirmation" class="form-control">
         </div>
     
+        <div class="form-group">
+                <input type="checkbox" name="architect" value="yes"> Check out if you are an architect
+        </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Register</button>
         </div>
