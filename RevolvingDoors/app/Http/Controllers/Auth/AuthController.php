@@ -94,7 +94,9 @@ class AuthController extends Controller
         
         if ($validator->fails())
         {
-            return redirect('auth/register');
+            $messages = $validator->messages();
+            return redirect('auth/register')
+                ->withErrors($validator);
         }
         else
         {
@@ -136,6 +138,9 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]); 
+
+        if(empty($user))
+            return ["error" => "error user empty"];
         
         $user->attachRole($role);
         
