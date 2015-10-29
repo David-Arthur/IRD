@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Bican\Roles\Models\Role;
+
 class AuthController extends Controller
 {
     /*
@@ -108,16 +110,25 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        if ($data['architect']){
-            // Assign the role
+        $role;
+        
+        if (!isset($data['architect']))
+        {
+            $role = Role::where('slug', $data['buyers'])->first();
         }
-        else{
-            // Assign the role
+        else
+        {
+            $role = Role::where('slug', $data['architect'])->first();    
         }
-        return User::create([
+        
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]); 
+        
+        $user->attachRole($role);
+        
+        return $user;
     }
 }

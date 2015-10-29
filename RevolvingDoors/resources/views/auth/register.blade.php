@@ -42,7 +42,7 @@
         </div>
     
         <div class="form-group">
-                <input type="checkbox" name="architect"> Check out if you are an architect
+                <input type="checkbox" name="architect" value="yes"> Check out if you are an architect
         </div>
 
         <div class="form-group">
