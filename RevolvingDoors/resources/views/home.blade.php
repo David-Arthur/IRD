@@ -15,6 +15,9 @@
 						@role('architect')
 						<p>Aaaand this user is an architect.</p>
 						@endrole
+						@role('buyers')
+						<p>Aaaand this user is a buyer.</p>
+						@endrole
 					@else
 						<h2> You are not logged in </h2>
 						<img src="{{ URL::to('images/darth_stw.jpg')}}" class="thumbnail" style="width : 150px;"/>

@@ -70,7 +70,8 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect('/auth/login');
+            $parameters = ['page_title' => 'Login', 'error' => 'Could not login, verify your email and password'];
+            return view('/auth/login', $parameters);
         }
     }
     
