@@ -70,7 +70,8 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect('/auth/login');
+            $parameters = ['page_title' => 'Login', 'error' => 'Could not login, verify your email and password'];
+            return view('/auth/login', $parameters);
         }
     }
     
@@ -98,6 +99,12 @@ class AuthController extends Controller
         else
         {
             $user = $this->create($data);
+            // CREATE ANOTHER FORM OS VALIDATION
+            if (is_array($user))
+            {
+                return $user["error"];
+            }
+            //
             return redirect('/');
         }
     }
@@ -114,13 +121,16 @@ class AuthController extends Controller
         
         if (!isset($data['architect']))
         {
-            $role = Role::where('slug', $data['buyers'])->first();
+            $role = Role::where('slug', 'architect')->first();
         }
         else
         {
-            $role = Role::where('slug', $data['architect'])->first();    
+            $role = Role::where('slug', 'buyers')->first();    
         }
         
+        if (empty($role))
+            return ["error" => "error fetching role"];
+            
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
