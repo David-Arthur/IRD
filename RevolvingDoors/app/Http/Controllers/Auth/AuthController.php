@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Bican\Roles\Models\Role;
+
 class AuthController extends Controller
 {
     /*
@@ -68,7 +70,8 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect('/auth/login');
+            $parameters = ['page_title' => 'Login', 'error' => 'Could not login, verify your email and password'];
+            return view('/auth/login', $parameters);
         }
     }
     
@@ -96,6 +99,12 @@ class AuthController extends Controller
         else
         {
             $user = $this->create($data);
+            // CREATE ANOTHER FORM OS VALIDATION
+            if (is_array($user))
+            {
+                return $user["error"];
+            }
+            //
             return redirect('/');
         }
     }
@@ -108,16 +117,28 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        if ($data['architect']){
-            // Assign the role
+        $role;
+        
+        if (!isset($data['architect']))
+        {
+            $role = Role::where('slug', 'architect')->first();
         }
-        else{
-            // Assign the role
+        else
+        {
+            $role = Role::where('slug', 'buyers')->first();    
         }
-        return User::create([
+        
+        if (empty($role))
+            return ["error" => "error fetching role"];
+            
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]); 
+        
+        $user->attachRole($role);
+        
+        return $user;
     }
 }

@@ -30,11 +30,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-           <a class="navbar-brand" href="#">IRD Group, Inc. </a>  
+           <a class="navbar-brand" href="{{ URL::to('/')}}">IRD Group, Inc. </a>  
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ URL::to('/')}}">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
@@ -50,11 +50,36 @@
               </ul>
             </li>
           </ul>
-    <!--      <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li><a href="../navbar-static-top/">Static top</a></li>
-            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-          </ul> -->
+        <ul class="nav navbar-nav navbar-right">
+            <li><div style="margin-top:13px; color:white;">  
+                
+               @if (Auth::check())
+						You are logged in
+						@role('admin')
+						 as an <strong>admin</strong>.</p>
+						@endrole
+						@role('architect')
+						 as an architect.</p>
+						@endrole
+					@else
+						 You are not logged in 
+					@endif
+                
+                
+                
+                
+                
+                <!-- IF USER IS NOT LOGGED -->
+                @if (!Auth::check())
+                <a href="{{ URL::to('auth/login') }}" class="btn btn-primary btn-xs log-in-button" style="color:white;" role="button">Log-In</a>
+                <!-- IF USER IS LOGGED -->
+                @else
+                <a href="{{ URL::to('auth/logout') }}" class="btn btn-primary btn-xs log-in-button" style="color:white;" role="button">Log-Out</a>
+                @endif
+                </div>
+            </li>
+          </ul>     
+      
         </div><!--/.nav-collapse -->
       </div>
     </nav>

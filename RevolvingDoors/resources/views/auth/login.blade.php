@@ -3,13 +3,17 @@
 
   <div class="jumbotron jumbo1">
     <div class="container text-center top">
-        <img src="{{ URL::to('../images/logo_color_300.png')}}">
+        <img src="{{ URL::to('/images/logo_color_300.png')}}">
     </div>
 </div>      
      
 <div class="container white ">  
     <div class="col-xs-12 text-center"><h2>Log-In to International Revolving Doors</h2></div>
-
+    @if (isset($error))
+        <div class="col-xs-4 col-xs-offset-4 text-center">
+            <p>{{ $error }} </p>
+        </div>
+    @endif               
     <div class="col-xs-4 col-xs-offset-4 text-center login-container">
         <form class="form-horizontal loginform" method="post" action="{{ URL::to('/auth/login') }}">
             {!! csrf_field() !!}

@@ -3,7 +3,7 @@
 <!-- resources/views/auth/register.blade.php -->
     <div class="jumbotron jumbo1">
     <div class="container text-center top">
-        <img src="assets/images/logo_color_300.png">
+        <img src="{{ URL::to('../images/logo_color_300.png')}}">
     </div>
 </div>
 
@@ -42,7 +42,7 @@
         </div>
     
         <div class="form-group">
-                <input type="checkbox" name="architect"> Check out if you are an architect
+                <input type="checkbox" name="architect" value="yes"> Check out if you are an architect
         </div>
 
         <div class="form-group">
