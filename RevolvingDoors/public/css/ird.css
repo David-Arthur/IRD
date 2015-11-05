@@ -91,4 +91,11 @@ body {
     
 }
 
+/* Product Page CSS */
+span.glyphicon-lock, span.glyphicon-refresh, span.glyphicon-hand-right{
+    font-size: 3em;
+}
 
+.productJumbo{
+    padding: 40px 20px 40px 20px !important;
+}
