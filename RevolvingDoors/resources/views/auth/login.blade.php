@@ -18,7 +18,7 @@
         <form class="form-horizontal loginform" method="post" action="{{ URL::to('/auth/login') }}">
             {!! csrf_field() !!}
             <div class="form-group">
-                <label for="email" class="col-lg-4 control-label">Username</label>
+                <label for="email" class="col-lg-4 control-label">Email</label>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" id="email" name="email">
                 </div>
