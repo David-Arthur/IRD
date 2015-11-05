@@ -2,7 +2,7 @@
     <div class="foot">
         <div class="container">
             <div class="col-xs-8">
-                <h4>INTERNATIONAL Revolving Doors is a division of the IRD Group, INC</h4>
+                <h4>International Revolving Doors is a division of the IRD Group, INC</h4>
                 <p>2138 North Sixth Avenue, Evansville, IN. 47710<strong>812-425-3311</strong></p>
             </div>   
             <div class="col-xs-4 text-right ">

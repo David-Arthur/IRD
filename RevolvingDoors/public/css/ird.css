@@ -70,6 +70,8 @@ body {
     padding-bottom: 20px;
     padding-top: 15px; 
     height: 100px;
+   margin-top: 0;
+   
 }
 .log-in-button {
     padding-right: 30px; 

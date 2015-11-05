@@ -43,10 +43,10 @@
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
+            <!--    <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Specific List</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#">One more separated link</a></li> -->
               </ul>
             </li>
           </ul>
@@ -56,10 +56,13 @@
                @if (Auth::check())
 						You are logged in
 						@role('admin')
-						 as an <strong>admin</strong>.</p>
+                            as an <strong>admin</strong>.</p>
 						@endrole
 						@role('architect')
-						 as an architect.</p>
+				            as an architect.</p>
+						@endrole
+                        @role('buyers')
+						      as a buyer.</p>
 						@endrole
 					@else
 						 You are not logged in 
