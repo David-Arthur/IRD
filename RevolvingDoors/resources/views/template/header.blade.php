@@ -53,21 +53,17 @@
         <ul class="nav navbar-nav navbar-right">
             <li><div style="margin-top:13px; color:white;">  
                 
-               @if (Auth::check())
-						You are logged in
-						@role('admin')
-						 as an <strong>admin</strong>.</p>
-						@endrole
-						@role('architect')
-						 as an architect.</p>
-						@endrole
-					@else
-						 You are not logged in 
-					@endif
-                
-                
-                
-                
+                @if (Auth::check())
+      						You are logged in
+      						@role('admin')
+      						 as an <strong>admin</strong>.</p>
+      						@endrole
+      						@role('architect')
+      						 as an architect.</p>
+      						@endrole
+      					@else
+      						 You are not logged in 
+      					@endif
                 
                 <!-- IF USER IS NOT LOGGED -->
                 @if (!Auth::check())
@@ -83,5 +79,11 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+    <div class="jumbotron jumbo1">
+      <div class="container text-center top">
+        <img src="{{ URL::to('/images/logo_color_300.png')}}">
+      </div>
+    </div>
 
 
