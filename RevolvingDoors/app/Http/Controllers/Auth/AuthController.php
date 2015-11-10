@@ -114,6 +114,7 @@ class AuthController extends Controller
             $login_data = ['email' => $data['email'],
                            'password' => $data['password']];
                            
+            $this->sendVerificationEmail($data);
             Auth::attempt($login_data);
             //
             return redirect('/');
@@ -154,5 +155,17 @@ class AuthController extends Controller
         $user->attachRole($role);
         
         return $user;
+    }
+    
+    private function sendVerificationEmail($data)
+    {
+        Mail::send('mail.confirmation', 
+                               ['link' => $data['confirmation_code']], 
+                               function ($m) use ($data) {
+                                    $m->to($data['email'], $data['name']);
+                                    $m->from('mailgun@sandbox43e97825077b469a9ac64b60db150dfb.mailgun.org', 'RevolvingDoors Contact');
+                                    $m->subject('Verify Your Account');
+                               }
+                    );
     }
 }
