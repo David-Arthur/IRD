@@ -11,7 +11,9 @@
     <link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::to('/css/ird.css')}}" rel="stylesheet">
        
-      
+    <!-- Javascript --> 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript" src="{{URL::to('/js/function.js') }}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,6 +55,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><div style="margin-top:13px; color:white;">  
                 
+<<<<<<< HEAD
                @if (Auth::check())
 						You are logged in
 						@role('admin')
@@ -71,6 +74,19 @@
                 
                 
                 
+=======
+                @if (Auth::check())
+      						You are logged in
+      						@role('admin')
+      						 as an <strong>admin</strong>.</p>
+      						@endrole
+      						@role('architect')
+      						 as an architect.</p>
+      						@endrole
+      					@else
+      						 You are not logged in 
+      					@endif
+>>>>>>> master
                 
                 <!-- IF USER IS NOT LOGGED -->
                 @if (!Auth::check())
@@ -86,5 +102,11 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+    <div class="jumbotron jumbo1">
+      <div class="container text-center top">
+        <img src="{{ URL::to('/images/logo_color_300.png')}}">
+      </div>
+    </div>
 
 

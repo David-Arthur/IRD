@@ -1,10 +1,5 @@
 @extends('template.master')
-@section('content')
-<div class="jumbotron jumbo1">
-    <div class="text-center top">
-        <img src="{{ URL::to('images/logo_color_300.png')}}">
-    </div>
-</div>  
+@section('content') 
 <div class="container">
 	<div class="col-sm-12">
 		<div class="panel panel-defaut">
