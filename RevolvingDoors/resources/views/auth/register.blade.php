@@ -1,6 +1,7 @@
 @extends('template.master')
 @section('content')
 <!-- resources/views/auth/register.blade.php -->
+
     <div class="jumbotron jumbo1">
     <div class="container text-center top">
         <img src="{{ URL::to('images/logo_color_300.png')}}">
@@ -9,6 +10,14 @@
 
 <div class="container white">
     <div class="col-xs-12 text-center"><h2>Sign up and get all the befenits of...</h2></div>
+
+    @if ($errors->has())
+        <div class="col-xs-12 alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>{{ $error }}<br>        
+            @endforeach
+        </div>
+    @endif
 
     <form method="POST" action="{{ URL::to('/auth/register') }}" class="col-md-3 col-md-offset-1 form-horizontal">
         {!! csrf_field() !!}

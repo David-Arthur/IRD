@@ -1,13 +1,6 @@
 @extends('template.master')
 @section('content')
-
-  <div class="jumbotron jumbo1">
-    <div class="container text-center top">
-        <img src="{{ URL::to('/images/logo_color_300.png')}}">
-    </div>
-</div>      
-     
-<div class="container white ">  
+<div class="container white">  
     <div class="col-xs-12 text-center"><h2>Log-In to International Revolving Doors</h2></div>
     @if (isset($error))
         <div class="col-xs-4 col-xs-offset-4 text-center">
@@ -18,7 +11,7 @@
         <form class="form-horizontal loginform" method="post" action="{{ URL::to('/auth/login') }}">
             {!! csrf_field() !!}
             <div class="form-group">
-                <label for="email" class="col-lg-4 control-label">Username</label>
+                <label for="email" class="col-lg-4 control-label">Email</label>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" id="email" name="email">
                 </div>
