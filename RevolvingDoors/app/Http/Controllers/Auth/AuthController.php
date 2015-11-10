@@ -86,6 +86,11 @@ class AuthController extends Controller
         return view('auth/register', array('page_title' => 'Sign Up'));
     }
     
+    public function getRegisterComplete()
+    {
+        return view('auth/register_complete', array('page_title' => 'Complete Registration'));
+    }
+    
     public function postRegister(Request $request)
     {
         $data = $request->all();
@@ -106,6 +111,10 @@ class AuthController extends Controller
             {
                 return $user["error"];
             }
+            $login_data = ['email' => $data['email'],
+                           'password' => $data['password']];
+                           
+            Auth::attempt($login_data);
             //
             return redirect('/');
         }

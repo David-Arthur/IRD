@@ -86,6 +86,21 @@ class ProductController extends Controller
 
     public function getProduct()
     {
-        return view('template/product', array("page_title" => "Our products"));    
+        return view('product/product', array("page_title" => "Our products"));    
+    }
+
+    public function getManual()
+    {
+        return view('product/manual', array("page_title" => "Manual Doors"));    
+    }
+
+    public function getAutomatic()
+    {
+        return view('product/automatic', array("page_title" => "Automatic Doors"));    
+    }
+
+    public function getSecurity()
+    {
+        return view('product/security', array("page_title" => "Security Doors"));    
     }
 }

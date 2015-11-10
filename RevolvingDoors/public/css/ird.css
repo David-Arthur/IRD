@@ -95,7 +95,27 @@ body {
 span.glyphicon-lock, span.glyphicon-refresh, span.glyphicon-hand-right{
     font-size: 3em;
 }
-
 .productJumbo{
     padding: 40px 20px 40px 20px !important;
+}
+.product-button:hover{
+    background-color: #052b4f;
+    color: white;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+
+.carousel-control{
+    background-image: none !important;
+    background-color: white;
+    color:#052b4f;
+    opacity: 1;
+}
+
+.carousel-control:hover{
+    color:#052b4f;
+    opacity:0.5;
 }
