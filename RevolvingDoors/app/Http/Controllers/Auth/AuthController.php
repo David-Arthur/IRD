@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -93,9 +94,12 @@ class AuthController extends Controller
     
     public function postRegister(Request $request)
     {
-        $data = $request->all();
+        $data = ['name' => $request->input('name'),
+                 'email' =>  $request->input('email'),
+                 'password' => $request->input('password'),
+                 'confirmation_code' => str_random(30)];
            
-        $validator = $this->validator($data);
+        $validator = $this->validator($request->all());
         
         if ($validator->fails())
         {
@@ -141,7 +145,7 @@ class AuthController extends Controller
         }
         
         if (empty($role))
-            return ["error" => "error fetching role"];
+            return back()->with("errors","error fetching role");
             
         $user = User::create([
             'name' => $data['name'],
@@ -150,7 +154,7 @@ class AuthController extends Controller
         ]); 
 
         if(empty($user))
-            return ["error" => "error user empty"];
+            return back()->with("error", "error user empty");
         
         $user->attachRole($role);
         
