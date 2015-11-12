@@ -1,6 +1,6 @@
 @extends('template.master')
 @section('content') 
-<div class="container">
+<div class="container bodydiv">
 	<div class="col-sm-12">
 		<div class="panel panel-defaut">
 			<div class="panel-body">
@@ -44,8 +44,8 @@
          <div class="col-xs-12 highlight hometriad"> <!-- One image highlight -->
             <div class="col-md-7 vcenter">    
                 <img class="img-responsive img-thumbnail" src="{{ URL::to('images/NyPubLibLg.jpg')}}">
-            </div><!--
-            --><div class="col-md-5 vcenter">
+            </div>
+            <div class="col-md-4 vcenter">
                 <h1 class="vcenter">IRD is the industry leader in Revolving Doors!</h1>
                     <h4>See why our products have the</h4>
                 <button type="button" class="btn btn-default btn-lg btn-block vcenter">IRD Advantage</button>
@@ -59,5 +59,7 @@
 			</div>
 		</div>
 	</div>
- </div> <!-- End container -->
+ 
+
+</div> <!-- End container -->
 @endsection

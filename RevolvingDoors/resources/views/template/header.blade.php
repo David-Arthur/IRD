@@ -55,7 +55,6 @@
         <ul class="nav navbar-nav navbar-right">
             <li><div style="margin-top:13px; color:white;">  
                 
-<<<<<<< HEAD
                @if (Auth::check())
 						You are logged in
 						@role('admin')
@@ -73,19 +72,7 @@
                 
                 
                 
-                
-=======
-                @if (Auth::check())
-      						You are logged in
-      						@role('admin')
-      						 as an <strong>admin</strong>.</p>
-      						@endrole
-      						@role('architect')
-      						 as an architect.</p>
-      						@endrole
-      					@else
-      						 You are not logged in 
-      					@endif
+                     
 >>>>>>> master
                 
                 <!-- IF USER IS NOT LOGGED -->
