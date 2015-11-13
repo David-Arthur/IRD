@@ -31,6 +31,4 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('auth/register/complete', 'Auth\AuthController@getRegisterComplete');
 
 Route::get('product/product', 'ProductController@getProduct');
-Route::get('product/manual', 'ProductController@getManual');
-Route::get('product/automatic', 'ProductController@getAutomatic');
-Route::get('product/security', 'ProductController@getSecurity');
+Route::get('product/type/{slug}	', 'ProductController@getType');
