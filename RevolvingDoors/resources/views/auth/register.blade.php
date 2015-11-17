@@ -1,6 +1,16 @@
 @extends('template.master')
 @section('content')
 <!-- resources/views/auth/register.blade.php -->
+<<<<<<< HEAD
+=======
+
+    <div class="jumbotron jumbo1">
+    <div class="container text-center top">
+        <img src="{{ URL::to('images/logo_color_300.png')}}">
+    </div>
+</div>
+
+>>>>>>> master
 <div class="container white">
     <div class="col-xs-12 text-center"><h2>Sign up and get all the befenits of...</h2></div>
 
