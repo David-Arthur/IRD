@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -93,9 +94,12 @@ class AuthController extends Controller
     
     public function postRegister(Request $request)
     {
-        $data = $request->all();
+        $data = ['name' => $request->input('name'),
+                 'email' =>  $request->input('email'),
+                 'password' => $request->input('password'),
+                 'confirmation_code' => str_random(30)];
            
-        $validator = $this->validator($data);
+        $validator = $this->validator($request->all());
         
         if ($validator->fails())
         {
@@ -114,6 +118,7 @@ class AuthController extends Controller
             $login_data = ['email' => $data['email'],
                            'password' => $data['password']];
                            
+            $this->sendVerificationEmail($data);
             Auth::attempt($login_data);
             //
             return redirect('/');
@@ -140,7 +145,7 @@ class AuthController extends Controller
         }
         
         if (empty($role))
-            return ["error" => "error fetching role"];
+            return back()->with("errors","error fetching role");
             
         $user = User::create([
             'name' => $data['name'],
@@ -149,10 +154,22 @@ class AuthController extends Controller
         ]); 
 
         if(empty($user))
-            return ["error" => "error user empty"];
+            return back()->with("error", "error user empty");
         
         $user->attachRole($role);
         
         return $user;
+    }
+    
+    private function sendVerificationEmail($data)
+    {
+        Mail::send('mail.confirmation', 
+                               ['link' => $data['confirmation_code']], 
+                               function ($m) use ($data) {
+                                    $m->to($data['email'], $data['name']);
+                                    $m->from('mailgun@sandbox43e97825077b469a9ac64b60db150dfb.mailgun.org', 'RevolvingDoors Contact');
+                                    $m->subject('Verify Your Account');
+                               }
+                    );
     }
 }
