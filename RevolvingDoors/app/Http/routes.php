@@ -28,14 +28,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-<<<<<<< HEAD
-Route::get('product/product', 'ProductController@getProduct');
-Route::get('product/manual', 'ProductController@getManual');
-Route::get('product/automatic', 'ProductController@getAutomatic');
-Route::get('product/security', 'ProductController@getSecurity');
-=======
 Route::get('auth/register/complete', 'Auth\AuthController@getRegisterComplete');
 
 Route::get('product/product', 'ProductController@getProduct');
 Route::get('product/type/{slug}	', 'ProductController@getType');
->>>>>>> master

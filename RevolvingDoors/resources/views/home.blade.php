@@ -1,10 +1,6 @@
 @extends('template.master')
 @section('content') 
-<<<<<<< HEAD
 <div class="container bodydiv">
-=======
-<div class="container">
->>>>>>> master
 	<div class="col-sm-12">
 		<div class="panel panel-defaut">
 			<div class="panel-body">

@@ -1,15 +1,10 @@
 @extends('template.master')
 @section('content')
-<div class="container white">
-<<<<<<< HEAD
- 
+<div class="container white"> 
 <h1 class="text-center">Automatic Revolving Doors</h1>    
     
 <!-- Beginning of Carousel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-=======
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
->>>>>>> master
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
