@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\ProductType;
 
 class ProductController extends Controller
 {
@@ -102,5 +103,17 @@ class ProductController extends Controller
     public function getSecurity()
     {
         return view('product/security', array("page_title" => "Security Doors"));    
+    }
+    
+    public function getType($slug)
+    {
+        $type = ProductType::where(['slug' => $slug])->first();
+        $gallery = array();
+        foreach ($type->products as $p)
+        {
+            $gallery[] = $p->gallery;    
+        }
+        
+        return view('product/type', ['page_title' => $type->name, 'productType' =>$type, 'GalleryMatrix' => $gallery]);
     }
 }

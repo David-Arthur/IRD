@@ -16,17 +16,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
-      @foreach ($productType->gallery as $image)
-        <div class="item">
-          <img src="{{ URL::to($image->url) }}" width="460" height="345">
-          <div class="carousel-caption">
-            <h3>Door One</h3>
-            <p>This is a first door.</p>
-          </div>
-        </div>
-      @endforeach
 
     </div>
+      @foreach ($GalleryMatrix as $gallery) 
+        @foreach ($gallery as $image)
+          <div class="item">
+            <img src="{{ URL::to('/'.$image->file_name) }}" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Door One</h3>
+              <p>This is a first door.</p>
+            </div>
+          </div>
+        @endforeach
+      @endforeach
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -48,7 +50,7 @@
     </div>
   </div>
 
-  @foreach ($productType->product as $product)
+  @foreach ($productType->products as $product)
     <div class="col-xs-4 container"> 
       <div class="jumbotron  text-justify">
         {{ $product }}
