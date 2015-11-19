@@ -12,7 +12,7 @@
 */
 
 
-// Route::get('/', 
+// Route::get('/',
 //     ['as' => 'home',
 //     'middleware' => 'role:admin',
 //     'uses' => 'PageController@index']);
@@ -29,6 +29,12 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('auth/register/complete', 'Auth\AuthController@getRegisterComplete');
-
+am
 Route::get('product/product', 'ProductController@getProduct');
 Route::get('product/type/{slug}	', 'ProductController@getType');
+<<<<<<< HEAD
+=======
+
+Route::get('finduser', 'MapController@showMap');
+Route::get('representative','RepresentativeController@getRep');
+>>>>>>> master

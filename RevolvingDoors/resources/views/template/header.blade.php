@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{{ $page_title }}</title>
+    <title>{{ $page_title or 'Revolving Doors' }}</title>
 
     <!-- Bootstrap -->
     <link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::to('/css/ird.css')}}" rel="stylesheet">
-       
-    <!-- Javascript --> 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="{{URL::to('/js/function.js') }}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-           <a class="navbar-brand" href="{{ URL::to('/')}}">IRD Group, Inc. </a>  
+           <a class="navbar-brand" href="{{ URL::to('/')}}">IRD Group, Inc. </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -53,7 +53,12 @@
             </li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
             <li><div style="margin-top:13px; color:white;">  
+=======
+            <li><div style="margin-top:13px; color:white;">
+
+>>>>>>> master
                 @if (Auth::check())
       						You are logged in
       						@role('admin')
@@ -63,8 +68,12 @@
       						 as an architect.
                 @endrole
       					@else
-      						 You are not logged in 
+      						 You are not logged in
       					@endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
                 <!-- IF USER IS NOT LOGGED -->
                 @if (!Auth::check())
                 <a href="{{ URL::to('auth/login') }}" class="btn btn-primary btn-xs log-in-button" style="color:white;" role="button">Log-In</a>
@@ -74,8 +83,8 @@
                 @endif
                 </div>
             </li>
-          </ul>     
-      
+          </ul>
+
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -85,5 +94,3 @@
         <img src="{{ URL::to('/images/logo_color_300.png')}}">
       </div>
     </div>
-
-

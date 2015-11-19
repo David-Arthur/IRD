@@ -21,15 +21,14 @@ class productSeeder extends Seeder
         ]);
 
         $phoenixDoor = Product::create([
-        	'product_name' => 'Phoenix',
+        	'name' => 'Phoenix',
         	'type_id' => $securityType->id,
-        	'product_description' => 'Phoenix Door',
+        	'description' => 'Phoenix Door',
         ]);
 
         $phoenixImage = ProductImage::create([
-        	'url' => 'images/door.jpg',
+        	'file_name' => 'images/door.jpg',
         	'product_id' => $phoenixDoor->id,
-        	'type_id' => $phoenixDoor->type_id,
         ]);
     }
 }
