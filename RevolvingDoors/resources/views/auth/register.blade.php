@@ -2,7 +2,7 @@
 @section('content')
 <!-- resources/views/auth/register.blade.php -->
 
-    <div class="jumbotron jumbo1">
+<div class="jumbotron jumbo1">
     <div class="container text-center top">
         <img src="{{ URL::to('images/logo_color_300.png')}}">
     </div>

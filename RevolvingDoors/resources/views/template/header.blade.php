@@ -40,32 +40,23 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="{{ URL::to('product/product') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
+                <li><a href="{{ URL::to('product/manual') }}">Manual Doors</a></li>
+                <li><a href="{{ URL::to('product/automatic') }}">Automatic Doors</a></li>
+                <li><a href="{{ URL::to('product/security') }}">Security Doors</a></li>
+            <!--    <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Specific List</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#">One more separated link</a></li> -->
               </ul>
             </li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
+
+            <li><div style="margin-top:13px; color:white;">  
             <li><div style="margin-top:13px; color:white;">
 
-                @if (Auth::check())
-      						You are logged in
-      						@role('admin')
-      						 as an <strong>admin</strong>.</p>
-      						@endrole
-      						@role('architect')
-      						 as an architect.</p>
-      						@endrole
-      					@else
-      						 You are not logged in
-      					@endif
 
                 <!-- IF USER IS NOT LOGGED -->
                 @if (!Auth::check())

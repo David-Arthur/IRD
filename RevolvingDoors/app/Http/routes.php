@@ -29,8 +29,8 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('auth/register/complete', 'Auth\AuthController@getRegisterComplete');
-am
-Route::get('product/product', 'ProductController@getProduct');
+
+Route::get('product/{slug}', 'ProductController@getProduct');
 Route::get('product/type/{slug}	', 'ProductController@getType');
 
 Route::get('finduser', 'MapController@showMap');

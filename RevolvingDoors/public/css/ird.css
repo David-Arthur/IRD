@@ -56,12 +56,15 @@ body {
 }
 
 .hometriad {
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     margin-bottom: 0;
     margin-top: 0;
 }
 
+.bodydiv {
+    margin-bottom: 0;
+}
 
 /* Footer Style */
 .foot {
@@ -70,6 +73,8 @@ body {
     padding-bottom: 20px;
     padding-top: 15px; 
     height: 100px;
+   margin-top: 0px;
+   
 }
 .log-in-button {
     padding-right: 30px; 
