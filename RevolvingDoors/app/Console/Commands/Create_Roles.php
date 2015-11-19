@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Bican\Roles\Models\Role;
 
@@ -31,5 +31,6 @@ $adminRole = Role::create([
 ]);
 
 $user = User::create(['name' => 'Test Name', 'email' => 'user@test.com', 'password' => bcrypt(123456)]);
+$user = User::create(['name' => 'Taylor', 'email' => 'FOO@test.com', 'password' => bcrypt(123456)]);
 
 ?>

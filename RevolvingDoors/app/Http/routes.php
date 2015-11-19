@@ -12,7 +12,7 @@
 */
 
 
-// Route::get('/', 
+// Route::get('/',
 //     ['as' => 'home',
 //     'middleware' => 'role:admin',
 //     'uses' => 'PageController@index']);
@@ -32,3 +32,5 @@ Route::get('auth/register/complete', 'Auth\AuthController@getRegisterComplete');
 
 Route::get('product/product', 'ProductController@getProduct');
 Route::get('product/type/{slug}	', 'ProductController@getType');
+
+Route::get('finduser', 'MapController@showMap');
