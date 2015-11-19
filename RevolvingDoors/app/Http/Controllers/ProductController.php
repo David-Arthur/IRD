@@ -85,7 +85,7 @@ class ProductController extends Controller
         //
     }
 
-    public function getProduct()
+    public function getProduct($slug)
     {
         return view('product/product', array("page_title" => "Our products"));    
     }

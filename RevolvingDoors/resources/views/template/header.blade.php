@@ -53,27 +53,11 @@
             </li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
+
             <li><div style="margin-top:13px; color:white;">  
-=======
             <li><div style="margin-top:13px; color:white;">
 
->>>>>>> master
-                @if (Auth::check())
-      						You are logged in
-      						@role('admin')
-                as an <strong>admin</strong>.
-      						@endrole
-      						@role('architect')
-      						 as an architect.
-                @endrole
-      					@else
-      						 You are not logged in
-      					@endif
-<<<<<<< HEAD
-=======
 
->>>>>>> master
                 <!-- IF USER IS NOT LOGGED -->
                 @if (!Auth::check())
                 <a href="{{ URL::to('auth/login') }}" class="btn btn-primary btn-xs log-in-button" style="color:white;" role="button">Log-In</a>
