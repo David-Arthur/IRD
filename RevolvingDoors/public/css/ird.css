@@ -109,7 +109,7 @@ span.glyphicon-lock, span.glyphicon-refresh, span.glyphicon-hand-right{
 }
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 30%;
       margin: auto;
   }
 

@@ -9,7 +9,7 @@
                 <img class="img-responsive img-thumbnail" src="{{ URL::to('images/products/manual.jpg')}}">
 		        <h3>Manual Doors</h3>
               <!--  <p class="text-left"><small>A manually rotating door designed to move people easily, reduce heating and cooling costs, and limit outside noise from entering the building. </small></p> -->
-		    	<a class="btn btn-default btn-lg product-button" href="{{ URL::to('product/manual') }}"> Learn More </a>
+		    	<a class="btn btn-default btn-lg product-button" href="{{ URL::to('product/type/manual') }}"> Learn More </a>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-4 container"> 
@@ -27,7 +27,7 @@
                 <img class="img-responsive img-thumbnail" src="{{ URL::to('images/products/security.jpg')}}">
                 <h3>Security Doors</h3>
                 <!-- <p class="text-left"><small>An automated revolving door with restricted access to keep your business secure by controlling entrance access.</small></p> -->
-		    	<a class="btn btn-default btn-lg product-button" href="{{ URL::to('product/security') }}"> Learn More </a>
+		    	<a class="btn btn-default btn-lg product-button" href="{{ URL::to('product/type/security') }}"> Learn More </a>
 			</div>
 		</div>
 	</div>
