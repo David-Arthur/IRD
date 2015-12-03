@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\ProductType;
 
-class ProductController extends Controller
+use App\Rep;
+use App\Location;
+
+class RepsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $reps = Rep::all();
+        return view('representative/representative')->with(['reps' => $reps]);
     }
 
     /**
@@ -83,22 +87,5 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function getProduct()
-    {
-        return view('product/product', array("page_title" => "Our products"));    
-    }
-    
-    public function getType($slug)
-    {
-        $type = ProductType::where(['slug' => $slug])->first();
-        $gallery = array();
-        foreach ($type->products as $p)
-        {
-            $gallery[] = $p->gallery;    
-        }
-        
-        return view('product/type', ['page_title' => $type->name, 'productType' =>$type, 'GalleryMatrix' => $gallery]);
     }
 }

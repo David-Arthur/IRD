@@ -14,12 +14,3 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-
-#Taylor's htaccess
-
-#Options +FollowSymLinks
-#RewriteEngine On
-
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^ index.php [L]
