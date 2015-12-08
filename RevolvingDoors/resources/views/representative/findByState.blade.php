@@ -8,24 +8,27 @@
 
     <div>
     	<p>
-    		Find a Representative near you.
+    		Representatives in {{ $location->state }}
     	</p>
     </div>
 
-    <form method="post" action="{{ URL::to('reps/find')}}">
-                {!! csrf_field() !!}
-    <div class="form-group">
-    	<label> Choose your state </label>
-    	<select name="state">
-    		@foreach ( $locations as $location)
-    			<option value="{{ $location->state }}"> {{ $location->state }}</option>
-    		@endforeach
-    	</select>
-    	<button class="btn btn-default">
-			Find
-		</button>
+    @foreach ($reps as $rep)
+    <div>
+    	<h2>
+    		{{ $rep->name }}
+    	</h2>	
+    	<ul>
+    		<li>
+    			<p>
+    				{{ $rep->description }}
+    			</p>
+    		</li>
+    		<li>
+    			{{ $rep->phone_number }}
+    		</li>
+    	</ul>
     </div>
-    </form>
+    @endforeach
     
     <!--
 	<div class="col-md-12 text-center"><h2>Representatives</h2></div>
