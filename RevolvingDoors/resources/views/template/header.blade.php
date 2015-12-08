@@ -14,6 +14,9 @@
     <!-- Javascript -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="{{URL::to('/js/function.js') }}"></script>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAPDUET0Qt7p2VcSk6JNU1sBSM5jMcmVqUpI7aqV44cW1cEECiThQYkcZUPRJn9vy_TWxWvuLoOfSFBw" type="text/javascript"></script>
+    <script src="{{URL::to('/js/map.js')}}" type="text/javascript"> </script>
+    <script src="{{URL::to('/js/rep.js')}}" type="text/javascript"> </script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,7 +24,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onunload="GUnload()">
    <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -54,7 +57,7 @@
           </ul>
         <ul class="nav navbar-nav navbar-right">
 
-            <li><div style="margin-top:13px; color:white;">  
+            <li><div style="margin-top:13px; color:white;">
             <li><div style="margin-top:13px; color:white;">
 
 
