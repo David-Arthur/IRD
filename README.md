@@ -104,3 +104,10 @@ else
 }
 ```
 - Do not forget to include `use Auth` in at the top of your file
+
+
+Things to do :
+- [ ] Add Carousel to home page
+- [ ] Fix carousel design to match the images used
+- [ ] Create page Add Reps
+- [ ] Find reps based on location

@@ -3,19 +3,28 @@
 <div class="container white ">  
 
     <div class="col-xs-12 text-center"><h2>Representatives</h2></div>
+
+    <div class="row">
 	    @foreach ($reps as $rep)
-	    <p>
-	    {{$rep->name}}
-	    </p>
-	    <div>
-		    Locations
-		    @foreach ($rep->locations as $location)
-			    <p>
-			    {{ $location->state }}
-			    </p>
-			@endforeach
+	    <div class="col-md-2 panel panel-default">
+		    <h4 class="panel-header">
+		    	{{$rep->name}}
+		    </h4>
+	    	<div class="panel-body">
+		    		Locations
+		    		<ul class="list-group">
+			    		@foreach ($rep->locations as $location)
+				    	<li class="list-group-item">
+					    	<p>
+							    {{ $location->state }}
+							</p>
+						</li>
+						@endforeach
+					</ul>
+			</div>
 	    </div>
 	    @endforeach
+	</div>
 
 	<div class="col-md-12 text-center"><h2>Representatives</h2></div>
 	<div class="form-group text-center row">
