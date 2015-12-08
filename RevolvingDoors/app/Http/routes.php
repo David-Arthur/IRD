@@ -30,7 +30,9 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('auth/register/complete', 'Auth\AuthController@getRegisterComplete');
 
-Route::get('product/product', 'ProductController@getProduct');
-Route::get('product/type/{slug}	', 'ProductController@getType');
+Route::get('product/', 'ProductController@getProduct');
+Route::get('product/type/{slug}', 'ProductController@getType');
+
 
 Route::get('finduser', 'MapController@showMap');
+Route::get('reps','RepsController@index');

@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\ProductType;
 
-class ProductController extends Controller
+class RepresentativeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -85,20 +84,8 @@ class ProductController extends Controller
         //
     }
 
-    public function getProduct()
+    public function getRep()
     {
-        return view('product/product', array("page_title" => "Our products"));    
-    }
-    
-    public function getType($slug)
-    {
-        $type = ProductType::where(['slug' => $slug])->first();
-        $gallery = array();
-        foreach ($type->products as $p)
-        {
-            $gallery[] = $p->gallery;    
-        }
-        
-        return view('product/type', ['page_title' => $type->name, 'productType' =>$type, 'GalleryMatrix' => $gallery]);
+        return view('representative/representative', array("page_title" => "Representatives"));    
     }
 }

@@ -56,12 +56,15 @@ body {
 }
 
 .hometriad {
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     margin-bottom: 0;
     margin-top: 0;
 }
 
+.bodydiv {
+    margin-bottom: 0;
+}
 
 /* Footer Style */
 .foot {
@@ -70,6 +73,8 @@ body {
     padding-bottom: 20px;
     padding-top: 15px; 
     height: 100px;
+   margin-top: 0px;
+   
 }
 .log-in-button {
     padding-right: 30px; 
@@ -102,9 +107,11 @@ span.glyphicon-lock, span.glyphicon-refresh, span.glyphicon-hand-right{
     background-color: #052b4f;
     color: white;
 }
+
+/*
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 30%;
       margin: auto;
   }
 
@@ -119,3 +126,4 @@ span.glyphicon-lock, span.glyphicon-refresh, span.glyphicon-hand-right{
     color:#052b4f;
     opacity:0.5;
 }
+*/
