@@ -1,5 +1,5 @@
 @extends('template.master')
-@section('content') 
+@section('content')
 <div class="container bodydiv">
 	<div class="col-sm-12">
 		<div class="panel panel-defaut">
@@ -61,7 +61,7 @@
                 <?php
                 /*
                 <div class="col-xs-12 highlight hometriad"> <!-- One image highlight -->
-                    <div class="col-md-7 vcenter">    
+                    <div class="col-md-7 vcenter">
                         <img class="img-responsive img-thumbnail" src="{{ URL::to('images/NyPubLibLg.jpg')}}">
                     </div>
                     <div class="col-md-4 vcenter">
@@ -73,24 +73,24 @@
                 */ ?>
                 <div class="col-xs-12 white hometriad"> <!-- THree Image highlight section -->
                     <h4 class="text-center">Providing quality products, quality service, and quality parts for your custom built revolving door needs.</h4>
-                    <div class="col-sm-4 text-center"> 
+                    <div class="col-sm-4 text-center">
                         <p><img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/repmap.jpg')}}" > </p>
-                        <p><a class="btn btn-default" href="#" role="button">Find a Sales Rep</a></p>
-                    </div>    
-                    <div class="col-sm-4 text-center"> 
+                        <p><a class="btn btn-default" href="{{URL::to('finduser')}}" role="button">Find a Sales Rep</a></p>
+                    </div>
+                    <div class="col-sm-4 text-center">
                         <p> <img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/products.jpg')}}"> </p>
                         <p><a class="btn btn-default" href="{{ URL::to('product/product') }}" role="button">See our Products</a></p>
-                    </div> 
+                    </div>
                     <div class="col-sm-4 text-center">
                         <p><img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/parts.jpg')}}"></p>
                         <p><a class="btn btn-default" href="#" role="button">Find a Replacement Part</a></p>
-                    </div> 
+                    </div>
                 </div> <!-- End of three image section -->
-                
+
 			</div>
 		</div>
 	</div>
- 
+
 
 </div> <!-- End container -->
 @endsection

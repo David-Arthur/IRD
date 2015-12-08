@@ -1,97 +1,76 @@
-
 @extends('template.master')
-
 @section('content')
-<head>
-<!--<link rel="stylesheet" href="styles/master.css" media="screen" title="no title" charset="utf-8">-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
-<!--<script src="scripts/map.js">-->
-<script>
-$(document).ready(function() {
-  // Asynchronously Load the map API
-  var script = document.createElement('script');
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
-  document.body.appendChild(script);
-});
-
-function initialize() {
-  var map;
-  var bounds = new google.maps.LatLngBounds();
-  var mapOptions = {
-      mapTypeId: 'roadmap'
-  };
-
-  // Display a map on the page
-  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-  map.setTilt(45);
-
-  // Multiple Markers
-  var markers = [
-      ['London Eye, London', 51.503454,-0.119562],
-      ['Palace of Westminster, London', 51.499633,-0.124755]
-  ];
-
-  // Info Window Content
-  var infoWindowContent = [
-      ['<div class="info_content">' +
-      '<h3>London Eye</h3>' +
-      '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
-      ['<div class="info_content">' +
-      '<h3>Palace of Westminster</h3>' +
-      '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
-      '</div>']
-  ];
-
-  // Display multiple markers on a map
-  var infoWindow = new google.maps.InfoWindow(), marker, i;
-
-  // Loop through our array of markers & place each one on the map
-  for( i = 0; i < markers.length; i++ ) {
-      var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-      bounds.extend(position);
-      marker = new google.maps.Marker({
-          position: position,
-          map: map,
-          title: markers[i][0]
-      });
-
-      // Allow each marker to have an info window
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-              infoWindow.setContent(infoWindowContent[i][0]);
-              infoWindow.open(map, marker);
+    <div id="map" style="width: 800px; height: 600px"></div>
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b>
+      However, it seems JavaScript is either disabled or not supported by your browser.
+      To view Google Maps, enable JavaScript by changing your browser options, and then
+      try again.
+    </noscript>
+    <script type="text/javascript">
+    //<![CDATA[
+    if (GBrowserIsCompatible()) {
+      var polys = [];
+      var labels = [];
+      // Display the map, with some controls and set the initial location
+      var map = new GMap2(document.getElementById("map"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(42.16,-100.72),4);
+      GEvent.addListener(map, "click", function(overlay,point) {
+        var T1 = new Date();
+        if (!overlay) {
+          for (var i=0; i<polys.length; i++) {
+            if (polys[i].Contains(point)) {
+              var area = polys[i].Area()/1000000;
+              var sqmiles = area/2.58998811;
+              var T2 = new Date();
+              map.openInfoWindowHtml(point,"You clicked on "+x.name+"<br>The area of "+labels[i]+" is "+parseInt(area)
+                    +" sq km.<br>that's "+parseInt(sqmiles)+" square miles<br>"
+                    +"Its boundary is "+parseInt(polys[i].Distance()/1609.344)+" miles long"
+                    +"<hr>Time taken = "+(T2.getTime()-T1.getTime())+" milliseconds"
+              );             i = 999; // Jump out of loop
+            }
           }
-      })(marker, i));
-
-      // Automatically center the map fitting all markers on the screen
-      map.fitBounds(bounds);
-  }
-
-  // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-  var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-      this.setZoom(14);
-      google.maps.event.removeListener(boundsListener);
-  });
-
-}
-
-</script>
-<style>
-#map_wrapper {
-    height: 400px;
-}
-
-#map_canvas {
-    width: 100%;
-    height: 100%;
-}
-</style>
-</head>
-<h1 style="color: white;">Locate Your Representative</h1>
-<div id="map_wrapper">
-    <div id="map_canvas" class="mapping"></div>
-</div>
-<!--<img src="{{ URL::to('images/map.jpg')}}" class="thumbnail" style="width : 50%;"/>-->
-
+        }
+      });
+      // Read the data from states.xml
+      var request = GXmlHttp.create();
+      request.open("GET", "states.xml", true);
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          var xmlDoc = GXml.parse(request.responseText);
+          // ========= Now process the polylines ===========
+          var states = xmlDoc.documentElement.getElementsByTagName("state");
+          // read each line
+          for (var a = 0; a < states.length; a++) {
+            // get any state attributes
+            var label  = states[a].getAttribute("name");
+            var colour = states[a].getAttribute("colour");
+            // read each point on that line
+            var points = states[a].getElementsByTagName("point");
+            var pts = [];
+            for (var i = 0; i < points.length; i++) {
+               pts[i] = new GLatLng(parseFloat(points[i].getAttribute("lat")),
+                                   parseFloat(points[i].getAttribute("lng")));
+            }
+            var poly = new GPolygon(pts,"#000000",1,1,colour,0.5,{clickable:false});
+            polys.push(poly);
+            labels.push(label);
+            map.addOverlay(poly);
+          }
+          // ================================================
+        }
+      }
+      request.send(null);
+    }
+    // display a warning if the browser was not compatible
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+    // This Javascript is based on code provided by the
+    // Community Church Javascript Team
+    // http://www.bisphamchurch.org.uk/
+    // http://econym.org.uk/gmap/
+    //]]>
+    </script>
 @endsection
