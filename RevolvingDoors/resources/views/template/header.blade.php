@@ -42,7 +42,7 @@
             <li class="dropdown">
               <a href="{{ URL::to('product/') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{{ URL::to('product/type/manual') }}">Manual Doors</a></li>
+                <li><a href="{{ URL::to('product/type/{manual}') }}">Manual Doors</a></li>
                 <li><a href="{{ URL::to('product/type/automatic') }}">Automatic Doors</a></li>
                 <li><a href="{{ URL::to('product/type/security') }}">Security Doors</a></li>
             <!--    <li role="separator" class="divider"></li>

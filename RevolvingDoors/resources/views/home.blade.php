@@ -32,7 +32,7 @@
             </div>    
             <div class="col-sm-4 text-center"> 
                 <p> <img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/products.jpg')}}"> </p>
-                <p><a class="btn btn-default" href="{{ URL::to('product/product') }}" role="button">See our Products</a></p>
+                <p><a class="btn btn-default" href="{{ URL::to('product/') }}" role="button">See our Products</a></p>
             </div> 
             <div class="col-sm-4 text-center">
                 <p><img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/parts.jpg')}}"></p>
