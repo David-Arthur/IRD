@@ -118,7 +118,7 @@ class AuthController extends Controller
             $login_data = ['email' => $data['email'],
                            'password' => $data['password']];
                            
-            $this->sendVerificationEmail($data);
+            //$this->sendVerificationEmail($data);
             Auth::attempt($login_data);
             //
             return redirect('/');

@@ -30,8 +30,22 @@ class RepsSeeder extends Seeder
         
 
         foreach ($reps as $rep) {
+<<<<<<< HEAD
         	$location = $locations[array_rand($locations)];
         	$rep->locations()->attach($location->id);
+=======
+            for ($i=0; $i < 5; $i++) { 
+                $location = $locations[array_rand($locations)];
+                $rep->locations()->attach($location->id);   
+            }
+        }
+
+        $newrep = Rep::create(['name' => 'Test Rep', 'description' => 'This is just a test', 'avatar' => 'dart_stw.jpg']);
+        
+        for ($i=0; $i < 5; $i++) { 
+                $location = $locations[array_rand($locations)];
+                $newrep->locations()->attach($location->id);   
+>>>>>>> master
         }
     }
 }
