@@ -35,4 +35,4 @@ Route::get('product/type/{slug}', 'ProductController@getType');
 
 
 Route::get('finduser', 'MapController@showMap');
-Route::get('representative','RepresentativeController@getRep');
+Route::get('reps','RepsController@index');

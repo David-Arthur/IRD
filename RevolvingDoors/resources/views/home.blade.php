@@ -23,6 +23,18 @@
 					@endif
 				</div> <!-- End of Page Header -->
 
+        <div class="col-xs-12 highlight hometriad"> <!-- One image highlight -->
+            <div class="col-md-7 vcenter">    
+                <img class="img-responsive img-thumbnail" src="{{ URL::to('images/NyPubLibLg.jpg')}}">
+            </div>
+            <div class="col-md-4 vcenter">
+                <h1 class="vcenter">IRD is the industry leader in Revolving Doors!</h1>
+                    <h4>See why our products have the</h4>
+                <button type="button" class="btn btn-default btn-lg btn-block vcenter">IRD Advantage</button>
+            </div>
+        </div> <!-- end of one image highlight -->        
+                
+                
         
         <div class="col-xs-12 white hometriad"> <!-- THree Image highlight section -->
             <h4 class="text-center">Providing quality products, quality service, and quality parts for your custom built revolving door needs.</h4>
@@ -41,17 +53,7 @@
          </div> <!-- End of three image section -->
                 
                 
-         <div class="col-xs-12 highlight hometriad"> <!-- One image highlight -->
-            <div class="col-md-7 vcenter">    
-                <img class="img-responsive img-thumbnail" src="{{ URL::to('images/NyPubLibLg.jpg')}}">
-            </div>
-            <div class="col-md-4 vcenter">
-                <h1 class="vcenter">IRD is the industry leader in Revolving Doors!</h1>
-                    <h4>See why our products have the</h4>
-                <button type="button" class="btn btn-default btn-lg btn-block vcenter">IRD Advantage</button>
-            </div>
-        </div> <!-- end of one image highlight -->
-                
+
             
                 
                 

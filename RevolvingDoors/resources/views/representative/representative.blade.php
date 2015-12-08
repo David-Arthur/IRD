@@ -1,6 +1,22 @@
 @extends('template.master')
 @section('content')
 <div class="container white ">  
+
+    <div class="col-xs-12 text-center"><h2>Representatives</h2></div>
+	    @foreach ($reps as $rep)
+	    <p>
+	    {{$rep->name}}
+	    </p>
+	    <div>
+		    Locations
+		    @foreach ($rep->locations as $location)
+			    <p>
+			    {{ $location->state }}
+			    </p>
+			@endforeach
+	    </div>
+	    @endforeach
+
 	<div class="col-md-12 text-center"><h2>Representatives</h2></div>
 	<div class="form-group text-center row">
 	<label for="sel1">Select location:</label>
@@ -58,5 +74,6 @@
 			<option value="WY">Wyoming</option>
 		</select>
 	</div>
+
 </div> <!-- end container -->
 @endsection
