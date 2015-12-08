@@ -3,7 +3,7 @@
 <div class="container white ">  
 
     <div class="col-xs-12 text-center"><h2>Representatives</h2></div>
-<<<<<<< HEAD
+HEAD
 	    @foreach ($reps as $rep)
 	    <p>
 	    {{$rep->name}}
@@ -17,7 +17,7 @@
 			@endforeach
 	    </div>
 	    @endforeach
-=======
+
 
     <div class="row">
 	    @foreach ($reps as $rep)
@@ -40,7 +40,7 @@
 	    </div>
 	    @endforeach
 	</div>
->>>>>>> master
+
 
 	<div class="col-md-12 text-center"><h2>Representatives</h2></div>
 	<div class="form-group text-center row">
