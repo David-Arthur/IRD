@@ -79,7 +79,6 @@
                     </div>
                 </div> <!-- end of one image highlight -->
                 */ ?>
-<<<<<<< HEAD
                 
                 
                 
@@ -87,36 +86,13 @@
             <div class="col-md-4 vcenter">
                 <h1 class="vcenter">IRD is the industry leader in Revolving Doors!</h1>
                     <h4>See why our products have the</h4>
-                <button type="button" class="btn btn-default btn-lg btn-block vcenter">IRD Advantage</button>
+                <button type="button" class="btn btn-default btn-lg btn-block vcenter" data-toggle="modal" data-target="#AdvModal">IRD Advantage</button>
+                
             </div>
         </div> <!-- end of one image highlight -->        
                 
                 
         
-        <div class="col-xs-12 white hometriad"> <!-- THree Image highlight section -->
-            <h4 class="text-center">Providing quality products, quality service, and quality parts for your custom built revolving door needs.</h4>
-            <div class="col-sm-4 text-center"> 
-                <p><img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/repmap.jpg')}}" > </p>
-                <p><a class="btn btn-default" href="#" role="button">Find a Sales Rep</a></p>
-            </div>    
-            <div class="col-sm-4 text-center"> 
-                <p> <img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/products.jpg')}}"> </p>
-                <p><a class="btn btn-default" href="{{ URL::to('product/') }}" role="button">See our Products</a></p>
-            </div> 
-            <div class="col-sm-4 text-center">
-                <p><img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/parts.jpg')}}"></p>
-                <p><a class="btn btn-default" href="#" role="button">Find a Replacement Part</a></p>
-            </div> 
-         </div> <!-- End of three image section -->
-                
-                
-
-            
-                
-                
-
-                
-=======
                 <div class="col-xs-12 white hometriad"> <!-- THree Image highlight section -->
                     <h4 class="text-center">Providing quality products, quality service, and quality parts for your custom built revolving door needs.</h4>
                     <div class="col-sm-4 text-center">
@@ -132,11 +108,26 @@
                         <p><a class="btn btn-default" href="#" role="button">Find a Replacement Part</a></p>
                     </div>
                 </div> <!-- End of three image section -->
-
->>>>>>> master
 			</div>
 		</div>
 	</div>
+   <!-- IRD Advantage Modal -->
+   <div class="modal fade" id="AdvModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Why IRD?</h4>
+      </div>
+      <div class="modal-body">
+        You should use IRD because revolving doors are good for you. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </div> <!-- End container -->

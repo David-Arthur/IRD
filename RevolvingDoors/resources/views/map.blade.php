@@ -35,7 +35,7 @@
       });
       // Read the data from states.xml
       var request = GXmlHttp.create();
-      request.open("GET", "states.xml", true);
+      request.open("GET", "{{URL::to('xml/states.xml')}}", true);
       request.onreadystatechange = function() {
         if (request.readyState == 4) {
           var xmlDoc = GXml.parse(request.responseText);

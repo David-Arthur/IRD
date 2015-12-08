@@ -41,6 +41,7 @@
           <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('/')}}">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="{{URL::to('finduser')}}" role="button">Find a Sales Rep</a></li>  
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="{{ URL::to('product/') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
