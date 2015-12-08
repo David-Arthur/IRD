@@ -85,6 +85,10 @@ class RepsSeeder extends Seeder
         
 
         foreach ($reps as $rep) {
+
+        	$location = $locations[array_rand($locations)];
+        	$rep->locations()->attach($location->id);
+
             for ($i=0; $i < 5; $i++) { 
                 $location = $locations[array_rand($locations)];
                 $rep->locations()->attach($location->id);   
@@ -96,6 +100,7 @@ class RepsSeeder extends Seeder
         for ($i=0; $i < 5; $i++) { 
                 $location = $locations[array_rand($locations)];
                 $newrep->locations()->attach($location->id);   
+
         }
     }
 }

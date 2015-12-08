@@ -23,7 +23,10 @@
 					@endif
 				</div> <!-- End of Page Header -->
 
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+        <div class="col-xs-12 highlight hometriad"> <!-- One image highlight -->
+            <div class="col-md-7 vcenter">    
+                               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -34,18 +37,23 @@
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                      <img src="{{ URL::to('images/header_sm.jpg')}}" alt="...">
+                        <img class="img-responsive img-thumbnail" src="{{ URL::to('images/adelaide.jpg')}}">
                       <div class="carousel-caption">
-                        ...
+                        <!-- IMAGE COMMENT -->
                       </div>
                     </div>
                     <div class="item">
-                      <img src="{{ URL::to('images/header_sm.jpg')}}" alt="...">
+                      <img class="img-responsive img-thumbnail" src="{{ URL::to('images/NyPubLibLg.jpg')}}">
                       <div class="carousel-caption">
-                        ...
+                        <!-- IMAGE COMMENT -->
                       </div>
                     </div>
-                    ...
+                   <div class="item">
+                      <img class="img-responsive img-thumbnail" src="{{ URL::to('images/americanairlines.jpg')}}">
+                      <div class="carousel-caption">
+                        <!-- IMAGE COMMENT -->
+                      </div>
+                    </div>
                   </div>
 
                   <!-- Controls -->
@@ -71,6 +79,20 @@
                     </div>
                 </div> <!-- end of one image highlight -->
                 */ ?>
+                
+                
+                
+            </div>
+            <div class="col-md-4 vcenter">
+                <h1 class="vcenter">IRD is the industry leader in Revolving Doors!</h1>
+                    <h4>See why our products have the</h4>
+                <button type="button" class="btn btn-default btn-lg btn-block vcenter" data-toggle="modal" data-target="#AdvModal">IRD Advantage</button>
+                
+            </div>
+        </div> <!-- end of one image highlight -->        
+                
+                
+        
                 <div class="col-xs-12 white hometriad"> <!-- THree Image highlight section -->
                     <h4 class="text-center">Providing quality products, quality service, and quality parts for your custom built revolving door needs.</h4>
                     <div class="col-sm-4 text-center">
@@ -86,10 +108,26 @@
                         <p><a class="btn btn-default" href="#" role="button">Find a Replacement Part</a></p>
                     </div>
                 </div> <!-- End of three image section -->
-
 			</div>
 		</div>
 	</div>
+   <!-- IRD Advantage Modal -->
+   <div class="modal fade" id="AdvModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Why IRD?</h4>
+      </div>
+      <div class="modal-body">
+        You should use IRD because revolving doors are good for you. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </div> <!-- End container -->
