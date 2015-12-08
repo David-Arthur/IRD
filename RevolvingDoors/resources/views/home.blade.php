@@ -97,7 +97,7 @@
                     <h4 class="text-center">Providing quality products, quality service, and quality parts for your custom built revolving door needs.</h4>
                     <div class="col-sm-4 text-center">
                         <p><img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/repmap.jpg')}}" > </p>
-                        <p><a class="btn btn-default" href="{{URL::to('finduser')}}" role="button">Find a Sales Rep</a></p>
+                        <p><a class="btn btn-default" href="{{URL::to('reps')}}" role="button">Find a Sales Rep</a></p>
                     </div>
                     <div class="col-sm-4 text-center">
                         <p> <img class="img-responsive img-thumbnail" width="75%" src="{{ URL::to('images/products.jpg')}}"> </p>
