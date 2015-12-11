@@ -38,7 +38,8 @@
 		<div class="col-xs-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">Get in touch</div>
-				<form class="form-horizontal contactform" method="post" action="{{ URL::to('/auth/login') }}">
+				<form class="form-horizontal contactform" method="post" action="{{ URL::to('/contact') }}">
+					{!! csrf_field() !!}
 					<div class="form-group">
 						<br>
 						<label for="name" class="col-sm-2 control-label">Name</label>
@@ -55,7 +56,7 @@
 					<div class="form-group">
 						<label for="message" class="col-sm-2 control-label">Message</label>
 						<div class="col-sm-9">
-							<textarea class="form-control" rows="4" name="message"></textarea>
+							<textarea class="form-control" rows="4" name="textmessage"></textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -64,10 +65,17 @@
 						</div>
 					</div>
 					<div class="form-group">
-						@if (isset($message))
-					        <div class="col-xs-4 col-xs-offset-4 text-center">
-					            <p>{{ $message }} </p>
+						@if ($errors->has())
+					        <div class="col-sm-10 alert alert-danger">
+					            @foreach ($errors->all() as $error)
+					                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>{{ $error }}<br>        
+					            @endforeach
 					        </div>
+					    @endif
+						@if (isset($textmessage))
+					        <div class="col-sm-10 alert {{$class}}" role="alert">
+  								{{$textmessage}}
+							</div>
 					    @endif    
 					</div>
 				</form>

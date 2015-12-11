@@ -7,7 +7,7 @@
             </div>   
             <div class="col-xs-4 text-right ">
                 <h6>&copy;2015 International Revolving Door</h6>
-                
+                                <a href="{{ URL::to('/contact') }}" class="btn btn-primary btn-xs log-in-button" style="color:white;" role="button">Contact IRD</a>
             </div>
         </div>
     </div>                   
