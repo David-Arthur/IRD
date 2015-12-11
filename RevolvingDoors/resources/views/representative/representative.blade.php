@@ -97,7 +97,9 @@
             {
 	            // get any state attributes
 
-		          var colour = states[a].getAttribute("colour");
+		          //var colour = states[a].getAttribute("colour");
+
+		          var colour = "#99FF66";
 		          // read each point on that line
 		          var points = states[a].getElementsByTagName("point");
 		          var pts = [];
