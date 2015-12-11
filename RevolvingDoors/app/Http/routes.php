@@ -43,3 +43,6 @@ Route::get('contact','ContactController@getContact');
 Route::post('contact','ContactController@postContact');
 
 Route::get('about','AboutController@getAbout');
+
+Route::get('reps/add', 'RepsController@create');
+Route::post('reps/add', 'RepsController@store');

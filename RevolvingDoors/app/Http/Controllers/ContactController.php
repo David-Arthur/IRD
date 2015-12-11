@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
+use Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -84,6 +86,21 @@ class ContactController extends Controller
         //
     }
 
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'textmessage' => 'required',
+        ]);
+    }
+
     public function getContact()
     {
         return view('contact', array("page_title" => "Contact"));    
@@ -94,29 +111,41 @@ class ContactController extends Controller
         $data = array(
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'message' => $request->get('message'),
+            'textmessage' => $request->get('textmessage'),
             );
         
-        if (sendContactEmail($data))
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails())
         {
-            $parameters = ['page_title' => 'Contact', 'message' => 'Your message was successfully sent.'];
-            return view('/contact', $parameters);
+            $messages = $validator->messages();
+            return redirect('contact')
+                ->withErrors($validator);
         }
         else
-        {
-            $parameters = ['page_title' => 'Contact', 'message' => 'Could not send your message'];
-            return view('/contact', $parameters);
+        {                  
+            if ($this->sendContactEmail($data))
+            {
+                $parameters = ['page_title' => 'Contact', 'textmessage' => 'Your message was successfully sent.', 'class' => 'alert-success'];
+                return view('contact', $parameters);
+            }
+            else
+            {
+                $parameters = ['page_title' => 'Contact', 'textmessage' => 'Could not send your message', 'class' => 'alert-danger'];
+                return view('contact', $parameters);
+            }
         }
     }
 
     private function sendContactEmail($data)
     {
-        Mail::send('mail.contact', //Change this 
-                               function ($m) use ($data) {
-                                    $m->to('lavorel.lou@gmail.com'); //info@internationalrevolvingdoors.com
-                                    $m->from($data['email'], $data['name']);
-                                    $m->subject('Contact Message');
-                               }
-                    );
+        Mail::send('mail.messagefromuser', //Change this 
+            ['name' => $data['name'], 'textmessage' => $data['textmessage']],
+            function ($m) use ($data) {
+                $m->to('lavorel.lou@gmail.com'); //info@internationalrevolvingdoors.com
+                $m->from($data['email'], $data['name']);
+                $m->subject('User Message');
+            }
+        );
     }
 }

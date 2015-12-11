@@ -268,3 +268,16 @@ span.glyphicon-lock, span.glyphicon-refresh, span.glyphicon-hand-right{
     opacity:0.5;
 }
 */
+
+
+/* --- reps --- */
+
+.rep-profile 
+{
+  margin : 20px 0;
+}
+
+.rep-profile img
+{
+  width : 100%;
+}

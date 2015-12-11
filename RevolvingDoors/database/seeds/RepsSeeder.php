@@ -14,6 +14,7 @@ class RepsSeeder extends Seeder
     public function run()
     {
         $locations = array( 
+            /*
         		Location::create(['state' =>'AL']),
                 Location::create(['state' =>'AK']),
                 Location::create(['state' =>'AZ']),
@@ -65,6 +66,58 @@ class RepsSeeder extends Seeder
                 Location::create(['state' =>'WV']),
                 Location::create(['state' =>'WI']),
                 Location::create(['state' =>'WY']),
+                */
+                Location::create(['state' => 'Alabama']),
+                Location::create(['state' => 'Alaska']),
+                Location::create(['state' => 'Arizona']),
+                Location::create(['state' => 'Arkansas']),
+                Location::create(['state' => 'California']),
+                Location::create(['state' => 'Colorado']),
+                Location::create(['state' => 'Connecticut']),
+                Location::create(['state' => 'Delaware']),
+                Location::create(['state' => 'District Of Columbia']),
+                Location::create(['state' => 'Florida']),
+                Location::create(['state' => 'Georgia']),
+                Location::create(['state' => 'Hawaii']),
+                Location::create(['state' => 'Idaho']),
+                Location::create(['state' => 'Illinois']),
+                Location::create(['state' => 'Indiana']),
+                Location::create(['state' => 'Iowa']),
+                Location::create(['state' => 'Kansas']),
+                Location::create(['state' => 'Kentucky']),
+                Location::create(['state' => 'Louisiana']),
+                Location::create(['state' => 'Maine']),
+                Location::create(['state' => 'Maryland']),
+                Location::create(['state' => 'Massachusetts']),
+                Location::create(['state' => 'Michigan']),
+                Location::create(['state' => 'Minnesota']),
+                Location::create(['state' => 'Mississippi']),
+                Location::create(['state' => 'Missouri']),
+                Location::create(['state' => 'Montana']),
+                Location::create(['state' => 'Nebraska']),
+                Location::create(['state' => 'Nevada']),
+                Location::create(['state' => 'New Hampshire']),
+                Location::create(['state' => 'New Jersey']),
+                Location::create(['state' => 'New Mexico']),
+                Location::create(['state' => 'New York']),
+                Location::create(['state' => 'North Carolina']),
+                Location::create(['state' => 'North Dakota']),
+                Location::create(['state' => 'Ohio']),
+                Location::create(['state' => 'Oklahoma']),
+                Location::create(['state' => 'Oregon']),
+                Location::create(['state' => 'Pennsylvania']),
+                Location::create(['state' => 'Rhode Island']),
+                Location::create(['state' => 'South Carolina']),
+                Location::create(['state' => 'South Dakota']),
+                Location::create(['state' => 'Tennessee']),
+                Location::create(['state' => 'Texas']),
+                Location::create(['state' => 'Utah']),
+                Location::create(['state' => 'Vermont']),
+                Location::create(['state' => 'Virginia']),
+                Location::create(['state' => 'Washington']),
+                Location::create(['state' => 'West Virginia']),
+                Location::create(['state' => 'Wisconsin']),
+                Location::create(['state' => 'Wyoming']),
         	);
 
 
@@ -78,8 +131,8 @@ class RepsSeeder extends Seeder
             [
                 'name' => $name[array_rand($name)].' '.$lastname[array_rand($lastname)], 
                 'description' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat quam a lacus commodo maximus. Aliquam ac dignissim libero. Sed a odio velit. Aliquam nec enim risus. Proin dapibus magna eu fringilla porta. Etiam molestie justo et quam bibendum congue. Quisque ornare commodo ligula, ut placerat tortor auctor sit amet. Nunc fermentum porta lacus sit amet condimentum." , 
-                'avatar' => 'dart_stw.jpg',
-                'phone_number' => rand(10000000, 99999999),
+                'avatar' => 'avatar.jpg',
+                'phone_number' => rand(1000000000, 9999999999),
             ]);
         }
         
@@ -95,12 +148,6 @@ class RepsSeeder extends Seeder
             }
         }
 
-        $newrep = Rep::create(['name' => 'Test Rep', 'description' => 'This is just a test', 'avatar' => 'dart_stw.jpg']);
         
-        for ($i=0; $i < 5; $i++) { 
-                $location = $locations[array_rand($locations)];
-                $newrep->locations()->attach($location->id);   
-
-        }
     }
 }

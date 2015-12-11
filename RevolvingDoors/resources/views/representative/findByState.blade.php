@@ -12,20 +12,31 @@
     </div>
     @foreach ($reps as $rep)
     <?php $names = explode(" ", $rep->name); ?>
-    <div class="col-xs-10 col-md-offset-1">
-    	<h2 class="repname">
-    		{{ $rep->name }}
-    	</h2>	
-            <p>
-                <strong>Phone:</strong>   <span class="repphone">{{ $rep->phone_number }}</span>
-    		</p>
-    			<p class="repdesc">
-    				<strong>About  {{ $names[0] }}: </strong> {{ $rep->description }}
-               
-                </p>
+    <div class="col-xs-10 col-md-offset-1 rep-profile">
+    	<div class="col-md-3">
+    		<img src="{{ URL::to('uploads/reps/' . $rep->avatar) }}" class="img-circle" />
+    	</div>
+    	<div class="col-md-9">
+    		<h2 class="repname">
+	    		{{ $rep->name }}
+	    	</h2>	
+	        <p>
+	        	<?php
+	        		$code = substr($rep->phone_number, 0, 3);
+	        		$firstpart = substr($rep->phone_number, 3, 3);
+	        		$secondpart = substr($rep->phone_number, 6, 4);
+	        	?>
+	            <strong>Phone:</strong>   <span class="repphone">({{ $code }}) - {{ $firstpart }} - {{ $secondpart }}</span>
+			</p>
+			<p class="repdesc">
+				<strong>About  {{ $names[0] }}: </strong> {{ $rep->description }}
+	        </p>
+    	</div>
     </div>
     @endforeach
     
+    
+
     <!--
 	<div class="col-md-12 text-center"><h2>Representatives</h2></div>
 	<div class="form-group text-center row">
