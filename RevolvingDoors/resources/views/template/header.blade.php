@@ -40,7 +40,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('/')}}">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="{{ URL::to('/about') }}">About</a></li>
             <li><a href="{{URL::to('finduser')}}" role="button">Find a Sales Rep</a></li>  
             <li><a href="{{ URL::to('/contact') }}">Contact</a></li>
             <li class="dropdown">
