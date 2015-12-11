@@ -41,3 +41,5 @@ Route::get('reps/find/state/{id}', 'RepsController@show');
 
 Route::get('contact','ContactController@getContact');
 Route::post('contact','ContactController@postContact');
+
+Route::get('about','AboutController@getAbout');

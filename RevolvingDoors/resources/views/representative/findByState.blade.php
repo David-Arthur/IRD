@@ -1,32 +1,28 @@
 @extends('template.master')
 @section('content')
+
+ 
+
 <div class="container white ">  
 
     <div class="col-xs-12 text-center">
-    	<h2>Representatives</h2>
+        <h2>Representatives <br><small>Representatives in {{ $location->state }}</small></h2>
+        <a class="btn btn-default" href="{{URL::to('reps')}}    ">Back</a>
+        <hr />
     </div>
-
-    <div>
-    	<p>
-    		Representatives in {{ $location->state }}
-    	</p>
-    </div>
-
     @foreach ($reps as $rep)
-    <div>
-    	<h2>
+    <?php $names = explode(" ", $rep->name); ?>
+    <div class="col-xs-10 col-md-offset-1">
+    	<h2 class="repname">
     		{{ $rep->name }}
     	</h2>	
-    	<ul>
-    		<li>
-    			<p>
-    				{{ $rep->description }}
-    			</p>
-    		</li>
-    		<li>
-    			{{ $rep->phone_number }}
-    		</li>
-    	</ul>
+            <p>
+                <strong>Phone:</strong>   <span class="repphone">{{ $rep->phone_number }}</span>
+    		</p>
+    			<p class="repdesc">
+    				<strong>About  {{ $names[0] }}: </strong> {{ $rep->description }}
+               
+                </p>
     </div>
     @endforeach
     
