@@ -131,8 +131,8 @@ class RepsSeeder extends Seeder
             [
                 'name' => $name[array_rand($name)].' '.$lastname[array_rand($lastname)], 
                 'description' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat quam a lacus commodo maximus. Aliquam ac dignissim libero. Sed a odio velit. Aliquam nec enim risus. Proin dapibus magna eu fringilla porta. Etiam molestie justo et quam bibendum congue. Quisque ornare commodo ligula, ut placerat tortor auctor sit amet. Nunc fermentum porta lacus sit amet condimentum." , 
-                'avatar' => 'dart_stw.jpg',
-                'phone_number' => rand(10000000, 99999999),
+                'avatar' => 'avatar.jpg',
+                'phone_number' => rand(1000000000, 9999999999),
             ]);
         }
         
@@ -148,12 +148,6 @@ class RepsSeeder extends Seeder
             }
         }
 
-        $newrep = Rep::create(['name' => 'Test Rep', 'description' => 'This is just a test', 'avatar' => 'dart_stw.jpg']);
         
-        for ($i=0; $i < 5; $i++) { 
-                $location = $locations[array_rand($locations)];
-                $newrep->locations()->attach($location->id);   
-
-        }
     }
 }

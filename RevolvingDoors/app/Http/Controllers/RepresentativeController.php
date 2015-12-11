@@ -15,7 +15,7 @@ class RepresentativeController extends Controller
      */
     public function index()
     {
-        //
+        return "hi" ;
     }
 
     /**
@@ -25,7 +25,7 @@ class RepresentativeController extends Controller
      */
     public function create()
     {
-        //
+        return 'hi';//view('representative/create');
     }
 
     /**
