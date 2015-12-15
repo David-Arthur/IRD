@@ -64,7 +64,7 @@
 							<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" style="margin-left:30px">
 						@if ($errors->has())
 					        <div class="col-sm-10 alert alert-danger">
 					            @foreach ($errors->all() as $error)
