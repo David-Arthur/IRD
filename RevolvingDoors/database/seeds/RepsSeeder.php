@@ -123,8 +123,8 @@ class RepsSeeder extends Seeder
 
 
         $reps = array();
-        $name = ['state' =>'Tom', 'Harry', 'Hagrid', 'Albus'];
-        $lastname = ['state' =>'Marvolo', 'Potter', 'SomeLastName', 'Dumbledore'];
+        $name = ['state' =>'Tom', 'Harry', 'John', 'Tyler'];
+        $lastname = ['state' =>'Awbrey', 'Johnson', 'Lavorel', 'Dumbledore', 'Stark'];
 
         for ($i=0; $i < 10; $i++) { 
         	$reps[] = Rep::create(
