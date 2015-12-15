@@ -36,3 +36,13 @@ Route::get('product/type/{slug}', 'ProductController@getType');
 
 Route::get('finduser', 'MapController@showMap');
 Route::get('reps','RepsController@index');
+Route::post('reps/find', 'RepsController@find');
+Route::get('reps/find/state/{id}', 'RepsController@show');
+
+Route::get('contact','ContactController@getContact');
+Route::post('contact','ContactController@postContact');
+
+Route::get('about','AboutController@getAbout');
+
+Route::get('reps/add', 'RepsController@create');
+Route::post('reps/add', 'RepsController@store');

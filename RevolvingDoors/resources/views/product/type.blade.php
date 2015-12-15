@@ -2,46 +2,46 @@
 @section('content')
 <div class="container white">
   <div class="col-xs-12 text-center"><h2>{{ $productType->name }} Revolving Doors</h2></div>
+    <div class="row">
+    <div class="col-md-6">
+          <!-- Carousel -->
+          <div class="carousel slide" id="myCarousel" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            </ol>
 
-  <!-- Carousel -->
-  <div class="carousel slide" id="myCarousel" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    </ol>
-
-    <?php $first = true; ?>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      @foreach ($GalleryMatrix as $gallery) 
-        @foreach ($gallery as $image)
-          <div class="item {{ ($first)? 'active' : ''}}">
-            <?php $first = false; ?>
-            <img src="{{ URL::to('/'.$image->file_name) }}" class="carousel-image">
-            <div class="container">
-              <div class="carousel-caption">
-                <h3>Door One</h3>
-                <p>This is a first door.</p>
-              </div>
+            <?php $first = true; ?>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              @foreach ($GalleryMatrix as $gallery) 
+                @foreach ($gallery as $image)
+                  <div class="item {{ ($first)? 'active' : ''}}">
+                    <?php $first = false; ?>
+                    <img src="{{ URL::to('/'.$image->file_name) }}" class="carousel-image">
+                    <div class="container">
+                      <div class="carousel-caption">
+                        <!-- Optional caption for each image can go here but it needs to be pulled from the databse -->
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              @endforeach
             </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-        @endforeach
-      @endforeach
+          <!-- End Carousel -->
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <!-- End Carousel -->
-
-  <div class="container"> 
+        
+  <div class="container col-md-6"> 
       <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
         <h2>Description</h2>
@@ -49,8 +49,9 @@
         </div>
       </div>
   </div>
+</div><!-- End Row -->
 
-  <div class="container"> 
+  <div class="container col-xs-12"> 
     <div class="row">
   @foreach ($productType->products as $product)
         <div class="col-sm-12 col-md-4">

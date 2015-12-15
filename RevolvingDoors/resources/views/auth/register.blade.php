@@ -1,6 +1,11 @@
 @extends('template.master')
 @section('content')
+
+
 <!-- resources/views/auth/register.blade.php -->
+
+<!-- resources/views/auth/register.blade.php -->
+
 
 <div class="container white">
     <div class="col-xs-12 text-center"><h2>Sign up and get all the befenits of...</h2></div>

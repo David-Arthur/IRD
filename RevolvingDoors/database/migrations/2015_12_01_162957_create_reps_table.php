@@ -16,6 +16,7 @@ class CreateRepsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('phone_number');
             $table->string('avatar');
             $table->timestamps();
         });

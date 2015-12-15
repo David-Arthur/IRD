@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use DB;
 use App\Rep;
 use App\Location;
+use Validator;
+use Illuminate\Database\Eloquent\Model;
 
 class RepsController extends Controller
 {
@@ -20,7 +22,10 @@ class RepsController extends Controller
     public function index()
     {
         $reps = Rep::all();
-        return view('representative/representative')->with(['reps' => $reps]);
+        $locations = DB::table('locations')->groupBy('state')->join('rep_location', 'locations.id', '=', 'rep_location.location_id')->get();
+
+    
+        return view('representative/representative')->with(compact('reps', 'locations'));
     }
 
     /**
@@ -30,7 +35,7 @@ class RepsController extends Controller
      */
     public function create()
     {
-        //
+        return view('representative/create');
     }
 
     /**
@@ -41,7 +46,23 @@ class RepsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), 
+        [
+            'name' => 'required',
+            'description' => 'required',
+            'phoneNumber' => 'required',
+        ]);
+
+        if (!$validator->fails())
+        {
+            $rep = Rep::create(['name' => $Request->input('name'), 'description' => $request->input('description')]);
+
+            return redirect('reps');
+        }
+        else
+        {
+            return back()->withErrors($validator);
+        }
     }
 
     /**
@@ -52,7 +73,11 @@ class RepsController extends Controller
      */
     public function show($id)
     {
-        //
+        $location = Location::where(['state' => $id])->first();
+
+        $reps = $location->reps;
+
+        return view('representative/findByState')->with(compact('location', 'reps'));
     }
 
     /**
@@ -87,5 +112,22 @@ class RepsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function find(Request $request)
+    {
+        if ($request->has('state') )
+        {
+            $location = Location::where(['state' => $request->input('state') ])->first();
+
+            if (empty($location))
+            {
+                abort(404, 'State not found');
+            }
+            else
+            {
+                return redirect('reps/find/state/'. $location->state);
+            }
+        }
     }
 }

@@ -40,12 +40,13 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('/')}}">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{{ URL::to('/about') }}">About</a></li>
+            <li><a href="{{URL::to('reps')}}" role="button">Find a Sales Rep</a></li>  
+            <li><a href="{{ URL::to('/contact') }}">Contact</a></li>
             <li class="dropdown">
               <a href="{{ URL::to('product/') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{{ URL::to('product/type/manual') }}">Manual Doors</a></li>
+                <li><a href="{{ URL::to('product/type/{manual}') }}">Manual Doors</a></li>
                 <li><a href="{{ URL::to('product/type/automatic') }}">Automatic Doors</a></li>
                 <li><a href="{{ URL::to('product/type/security') }}">Security Doors</a></li>
             <!--    <li role="separator" class="divider"></li>

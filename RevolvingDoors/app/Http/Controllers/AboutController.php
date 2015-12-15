@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class RepresentativeController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class RepresentativeController extends Controller
      */
     public function index()
     {
-        return "hi" ;
+        //
     }
 
     /**
@@ -25,7 +25,7 @@ class RepresentativeController extends Controller
      */
     public function create()
     {
-        return 'hi';//view('representative/create');
+        //
     }
 
     /**
@@ -84,8 +84,8 @@ class RepresentativeController extends Controller
         //
     }
 
-    public function getRep()
+    public function getAbout()
     {
-        return view('representative/representative', array("page_title" => "Representatives"));    
+        return view('about', array("page_title" => "About Us"));    
     }
 }
