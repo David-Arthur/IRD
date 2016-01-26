@@ -124,7 +124,7 @@ class ContactController extends Controller
         }
         else
         {                  
-            if ($this->sendContactEmail($data))
+            if (1)//$this->sendContactEmail($data))
             {
                 $parameters = ['page_title' => 'Contact', 'textmessage' => 'Your message was successfully sent.', 'class' => 'alert-success'];
                 return view('contact', $parameters);
